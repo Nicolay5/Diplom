@@ -1,0 +1,36 @@
+﻿<Window x:Class="Дипломный_проект_Зайцев.Добавить_контрагента"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Дипломный_проект_Зайцев"
+        mc:Ignorable="d"
+        Title="Добавить_контрагента" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0">
+            <TextBlock Text="Наименование" Height="30"></TextBlock>
+            <TextBox x:Name="tbxNameClient" Text="{Binding Наименование}" Width="250" TextChanged="tbxNameClient_TextChanged"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1">
+            <TextBlock Text="Телефон" Width="75" Height="30"></TextBlock>
+            <TextBox x:Name="tbxPhone" Text="{Binding Телефон}" Width="250" TextChanged="tbxPhone_TextChanged"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2">
+            <TextBlock Text="Адрес" Width="75" Height="30"></TextBlock>
+            <TextBox x:Name="tbxAddress" Text="{Binding Адрес}" Width="250" TextChanged="tbxAddress_TextChanged"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3">
+            <TextBlock Text="Дом" Width="75" Height="30"></TextBlock>
+            <TextBox x:Name="tbxHome" Text="{Binding Дом}" Width="250" TextChanged="tbxHome_TextChanged"></TextBox>
+        </StackPanel>
+        <Button Grid.Row="4" x:Name="btnCancelAdd" HorizontalAlignment="Left" Height="28" Width="250" VerticalAlignment="Center" Content="Отмена" Click="btnCancelAdd_Click"></Button>
+        <Button x:Name="btnSaveClientData" Content="Сохранить" HorizontalAlignment="Center" Height="28" Grid.Row="4" VerticalAlignment="Center" Width="250" Click="btnSaveClientData_Click"></Button>
+    </Grid>
+</Window>

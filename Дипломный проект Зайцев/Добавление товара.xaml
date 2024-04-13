@@ -1,0 +1,36 @@
+﻿<Window x:Class="Дипломный_проект_Зайцев.Добавление_товара"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Дипломный_проект_Зайцев"
+        mc:Ignorable="d"
+        Title="Добавление_товара" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0">
+            <TextBlock Height="30">Наименование товара</TextBlock>
+            <TextBox x:Name="tbxNameProduct" Text="{Binding Наименование}" Width="250" TextChanged="tbxNameProduct_TextChanged"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1">
+            <TextBlock  Height="30">Количество на складе</TextBlock>
+            <TextBox x:Name="tbxCol" Text="{Binding Количество_на_складе}" Width="250" TextChanged="tbxCol_TextChanged"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2">
+            <TextBlock Height="30">Категория товара</TextBlock>
+            <ComboBox x:Name="cmbCategory" SelectedItem="{Binding Категория_товара}" DisplayMemberPath="Наименование" IsEnabled="True" IsReadOnly="True" Width="250" SelectionChanged="cmbCategory_SelectionChanged"></ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3">
+            <TextBlock Height="30" Width="75">Стоимость</TextBlock>
+            <TextBox x:Name="tbxProductPrice" Text="{Binding Стоимость}" Width="250" TextChanged="tbxProductPrice_TextChanged"></TextBox>
+        </StackPanel>
+        <Button Grid.Row="4" x:Name="btnCancel" HorizontalAlignment="Left" Height="28" Width="250" VerticalAlignment="Center" Content="Отмена" Click="btnCancel_Click"></Button>
+        <Button x:Name="btnSaveProductData" Content="Сохранить" HorizontalAlignment="Center" Height="28" Grid.Row="4" VerticalAlignment="Center" Width="250" Click="btnSaveProductData_Click"></Button>
+    </Grid>
+</Window>

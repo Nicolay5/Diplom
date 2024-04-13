@@ -1,0 +1,99 @@
+﻿<Window x:Class="Дипломный_проект_Зайцев.Главная_страница"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Дипломный_проект_Зайцев"
+        mc:Ignorable="d"
+        Title="Главная_страница" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            
+        </Grid.RowDefinitions>
+        <TabControl>
+            <TabItem Header="Товары">
+                <TabItem.Content>
+                    <StackPanel>
+                        <ToolBar Height="25" VerticalAlignment="Top">
+                            <Button x:Name="AddProductButton" Click="AddProductButton_Click_1" ToolTip="Добавить запись о продаже" Content="Добавить">
+                                
+                            </Button>
+                            <Separator/>
+                            <Button x:Name="DeleteProductButton" Click="DeleteProductButton_Click_1" ToolTip="Удалить запись" Content="Удалить">
+                                
+                            </Button>
+                            <Separator/>
+                            
+                            <TextBox Foreground="LightGray" Width="100" x:Name="Poisk" TextChanged="Poisk_TextChanged" ToolTip="Поиск"></TextBox>
+                        </ToolBar>
+                        <DataGrid x:Name="dtgProducts" AutoGenerateColumns="False" ColumnWidth="*" Grid.Row="1" SelectionChanged="dtgProducts_SelectionChanged_1">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Наименование товара" Binding="{Binding Наименование}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Количество на складе" Binding="{Binding Количество_на_складе}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Категория товара" Binding="{Binding Категория_товара.Наименование}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Стоимость" Binding="{Binding Стоимость}"></DataGridTextColumn>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Контрагенты">
+                <TabItem.Content>
+                    <StackPanel>
+                        <ToolBar Height="25" VerticalAlignment="Top">
+                            <Button x:Name="AddClientButton" Click="AddClientButton_Click" ToolTip="Добавить клиента" Content="Добавить">
+                                
+                            </Button>
+                            <Separator/>
+                            <Button x:Name="DeleteClientButton" Click="DeleteClientButton_Click" ToolTip="Удалить клиента" Content="Удалить">
+                               
+                            </Button>
+                            <Separator/>
+
+                            <TextBox Foreground="LightGray" Width="100" x:Name="PoiskClient" TextChanged="PoiskClient_TextChanged" ToolTip="Поиск"></TextBox>
+                        </ToolBar>
+                        <DataGrid x:Name="dtgClients" AutoGenerateColumns="False" Grid.Row="1" ColumnWidth="*" SelectionChanged="dtgClients_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Наименование" Binding="{Binding Наименование}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Телефон" Binding="{Binding Телефон}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Адрес" Binding="{Binding Адрес}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Дом" Binding="{Binding Дом}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Заказы">
+                <TabItem.Content>
+                    <StackPanel>
+                        <ToolBar Height="25" VerticalAlignment="Top">
+                            <Button x:Name="AddOrderButton" Click="AddOrderButton_Click" ToolTip="Добавить заказ" Content="Добавить">
+                                
+                            </Button>
+                            <Separator/>
+                            <Button x:Name="DeleteOrderButton" Click="DeleteOrderButton_Click" ToolTip="Удалить товар" Content="Удалить">
+                                
+                            </Button>
+                            <Separator/>
+
+                            <TextBox Foreground="LightGray" Width="100" x:Name="PoiskOrder" TextChanged="PoiskOrder_TextChanged" ToolTip="Поиск"></TextBox>
+                        </ToolBar>
+                        <DataGrid x:Name="dtgOrders" Grid.Row="1" AutoGenerateColumns="False" ColumnWidth="*" SelectionChanged="dtgOrders_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Контрагент" Binding="{Binding Контрагенты.Наименование}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Товар" Binding="{Binding Товары.Наименование}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Количество" Binding="{Binding Количество}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Статус" Binding="{Binding Статус_заказа.Наименование}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Дата заказа" Binding="{Binding Дата_заказа}"></DataGridTextColumn>
+                                <DataGridTextColumn Header="Стоимость" Binding="{Binding Стоимость}"></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
